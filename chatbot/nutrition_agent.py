@@ -7,6 +7,9 @@ from agents import (
     function_tool,
 )
 
+import dotenv
+dotenv.load_dotenv()
+
 MODEL = "litellm/bedrock/eu.amazon.nova-lite-v1:0"
 
 
@@ -24,6 +27,7 @@ def bedrock_tool(tool: dict) -> FunctionTool:
         },
         on_invoke_tool=tool["on_invoke_tool"],
     )
+
 
 chroma_path = Path(__file__).parent.parent / "chroma"
 chroma_client = chromadb.PersistentClient(path=str(chroma_path))
