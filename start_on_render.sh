@@ -1,1 +1,2 @@
-cd chatbot && chainlit run 4_authentication.py --port $PORT --host 0.0.0.0
+#!/usr/bin/env bash
+chainlit run chatbot/beauty_chatbot.py --port $PORT
