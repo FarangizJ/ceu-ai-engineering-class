@@ -4,56 +4,38 @@ import os
 
 
 # -----------------------------------------
-# Ingredient knowledge base
+# Load ingredient knowledge base from TXT
 # -----------------------------------------
 
-beauty_db = {
+def load_ingredients():
 
-    "niacinamide": "Vitamin B3 that reduces oil production, improves enlarged pores, strengthens the skin barrier, and helps with acne and redness.",
+    ingredients = {}
 
-    "retinol": "A vitamin A derivative that accelerates skin cell turnover, reduces wrinkles, improves acne, and stimulates collagen production.",
+    path = "data/beauty_ingredients.txt"
 
-    "salicylic acid": "A beta hydroxy acid (BHA) that penetrates pores, dissolves excess oil, unclogs pores, and treats acne and blackheads.",
+    try:
+        with open(path, "r", encoding="utf-8") as f:
 
-    "hyaluronic acid": "A powerful humectant that attracts and retains moisture in the skin, improving hydration and reducing dryness.",
+            for line in f:
 
-    "azelaic acid": "Helps treat acne, reduce redness, calm inflammation, and improve pigmentation and rosacea.",
+                if ":" in line:
 
-    "ceramides": "Lipids naturally found in the skin barrier that help retain moisture and protect against irritation and dryness.",
+                    name, description = line.split(":", 1)
 
-    "vitamin c": "A powerful antioxidant that brightens skin, boosts collagen production, and reduces dark spots and pigmentation.",
+                    ingredients[name.strip().lower()] = description.strip()
 
-    "benzoyl peroxide": "Kills acne-causing bacteria, reduces inflammation, and helps clear pimples and cystic acne.",
+    except Exception as e:
+        print("Ingredient database error:", e)
 
-    "glycolic acid": "An alpha hydroxy acid (AHA) that exfoliates the skin surface, improves texture, and helps reduce pigmentation and fine lines.",
+    return ingredients
 
-    "lactic acid": "A gentle AHA that exfoliates while also hydrating the skin, improving brightness and smoothness.",
 
-    "zinc": "Helps regulate oil production, reduce inflammation, and support acne-prone skin.",
+beauty_db = load_ingredients()
 
-    "panthenol": "Also known as provitamin B5, it hydrates, soothes irritation, and helps repair the skin barrier.",
 
-    "centella asiatica": "A soothing plant extract that reduces redness, supports healing, and strengthens the skin barrier.",
-
-    "tea tree oil": "A natural antibacterial ingredient that helps reduce acne and inflammation.",
-
-    "squalane": "A lightweight moisturizing oil that hydrates the skin without clogging pores.",
-
-    "peptides": "Short chains of amino acids that support collagen production and help improve skin firmness and elasticity.",
-
-    "alpha arbutin": "A skin-brightening ingredient that reduces dark spots and hyperpigmentation.",
-
-    "kojic acid": "Helps lighten pigmentation and dark spots by inhibiting melanin production.",
-
-    "tranexamic acid": "Reduces hyperpigmentation and melasma by interfering with melanin production pathways.",
-
-    "green tea extract": "An antioxidant-rich ingredient that reduces inflammation, redness, and excess oil production.",
-
-    "allantoin": "A soothing ingredient that promotes skin healing and reduces irritation.",
-
-    "urea": "Helps hydrate dry skin and gently exfoliate dead skin cells."
-}
-
+# -----------------------------------------
+# Ingredient lookup tool
+# -----------------------------------------
 
 @function_tool
 def ingredient_lookup(ingredient: str) -> str:
@@ -66,51 +48,6 @@ def ingredient_lookup(ingredient: str) -> str:
 
     return "Ingredient not found in the skincare database."
 
-
-# -----------------------------------------
-# Find stores in Vienna
-# -----------------------------------------
-
-@function_tool
-def find_beauty_store(product: str, location: str = "Vienna") -> str:
-    """
-    Search where a cosmetic product can be bought in a specific location.
-    """
-
-    query = f"where to buy {product} cosmetics in {location}"
-
-    api_key = os.environ.get("EXA_API_KEY")
-
-    if not api_key:
-        return f"Search unavailable. But common places to buy cosmetics in {location} include pharmacies and beauty stores."
-
-    url = "https://api.exa.ai/search"
-
-    headers = {
-        "Authorization": f"Bearer {api_key}"
-    }
-
-    payload = {
-        "query": query,
-        "numResults": 5
-    }
-
-    try:
-        response = requests.post(url, json=payload, headers=headers)
-        data = response.json()
-
-        results = []
-
-        for r in data.get("results", []):
-            results.append(f"{r['title']} — {r['url']}")
-
-        if results:
-            return f"Places to buy {product} in {location}:\n\n" + "\n".join(results)
-
-    except Exception:
-        pass
-
-    return f"I couldn't find online results, but try pharmacies or cosmetic stores in {location}."
 
 # -----------------------------------------
 # Web search for cosmetics
@@ -164,6 +101,7 @@ def search_cosmetics_shops(product: str, location: str = "Vienna") -> str:
 
     return f"I couldn't find online shops for {product} in {location}, but try pharmacies or beauty retailers."
 
+
 # -----------------------------------------
 # Main AI Beauty Advisor
 # -----------------------------------------
@@ -174,17 +112,42 @@ beauty_agent = Agent(
     instructions="""
 You are an AI skincare advisor.
 
-Your role is to help users understand their skin condition, recommend routines, and suggest useful ingredients or places to buy skincare products.
-
-GENERAL RULES
-- Be clear and concise.
-- Answer only what the user asked.
-- Do not show reasoning or internal thinking.
-- Provide practical and safe skincare advice.
-- Do not invent medical diagnoses.
+Your role is to help users understand their skin condition, recommend routines, and suggest useful skincare ingredients.
 
 ------------------------------------------------
+GUARDRAILS (IMPORTANT)
 
+You must ONLY answer questions related to:
+
+• skincare
+• skin problems
+• cosmetic ingredients
+• skincare routines
+• acne, pores, redness, dryness
+• cosmetic products
+• skin analysis results
+
+If a user asks about topics unrelated to skincare (politics, math, coding, etc.), respond:
+
+"I'm a skincare assistant and can only help with skincare-related questions."
+
+------------------------------------------------
+MEDICAL SAFETY
+
+You are NOT a medical professional.
+
+You must NOT:
+
+• diagnose diseases
+• prescribe medications
+• recommend prescription drugs
+• recommend medical procedures
+
+If the user asks about serious or persistent skin conditions, respond:
+
+"For persistent or severe skin conditions, it is best to consult a dermatologist."
+
+------------------------------------------------
 SELFIE / SKIN ANALYSIS
 
 Sometimes the system provides a Skin Analysis Report generated by a computer vision system that analyzed the user's face.
@@ -195,17 +158,7 @@ Do NOT say you cannot analyze images.
 
 Instead, interpret the analysis and provide advice.
 
-Example input:
-
-Skin Analysis Report:
-Skin Type: oily
-Acne spots detected: 12
-Oil level: high
-Redness: moderate
-Pore visibility: large
-
 ------------------------------------------------
-
 WHEN A SKIN ANALYSIS IS PROVIDED
 
 You must:
@@ -221,7 +174,7 @@ Skin Type:
 <type>
 
 Explanation:
-<short explanation of the skin condition>
+<short explanation>
 
 Morning Routine:
 - step
@@ -238,41 +191,18 @@ Recommended Ingredients:
 - ingredient
 
 ------------------------------------------------
-
 INGREDIENT QUESTIONS
 
 If the user asks about a skincare ingredient,
 use the ingredient_lookup tool.
 
-Example:
-User: What does niacinamide do?
-
 ------------------------------------------------
-
 BUYING PRODUCTS
 
-If the user asks where to buy a product:
-
-1. Identify the product
-2. Identify the user's location from the conversation if available
-3. Use the store search tools
-
-If no location is known, assume Vienna.
+If the user asks where to buy a product,
+use the search_cosmetics_shops tool.
 
 ------------------------------------------------
-
-LOCATION AWARENESS
-
-The user may mention where they live.
-
-Example:
-"I live in Vienna"
-"I am in Uzbekistan"
-
-Remember the location from the conversation and use it when suggesting stores.
-
-------------------------------------------------
-
 TONE
 
 Be helpful, friendly, and professional like a skincare consultant.
@@ -282,7 +212,6 @@ Be helpful, friendly, and professional like a skincare consultant.
 
     tools=[
         ingredient_lookup,
-        find_beauty_store,
         search_cosmetics_shops
     ]
 )
