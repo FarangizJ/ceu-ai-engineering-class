@@ -1,7 +1,5 @@
 # Hackathon: Build an AI Agent That Actually Helps Someone
 
-> **DRAFT** — This document is a work in progress and may is going to before the hackathon.
-
 ## The Challenge
 
 Build a working AI agent using the **OpenAI Agents SDK** and **AWS Bedrock** that solves a real problem for a specific user.
