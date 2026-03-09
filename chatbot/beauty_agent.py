@@ -272,7 +272,3 @@ Be helpful, friendly, and professional like a skincare consultant.
         bedrock_tool(search_cosmetics_shops.__dict__),
     ]
 )
-see less
-Reply
-has context menu
-Post in channel
