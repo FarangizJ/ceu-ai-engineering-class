@@ -1,0 +1,12 @@
+[
+  {"id":"D1","q":"What size is the Cloud Balm tin?","page":"[catalog.pdf p.1]","fact":"30 ml"},
+  {"id":"D2","q":"What material is the Reed Mist bottle?","page":"[catalog.pdf p.2]","fact":"glass"},
+  {"id":"D3","q":"What scent does Reed Mist have?","page":"[catalog.pdf p.2]","fact":"citrus"},
+  {"id":"D4","q":"What finish does Cloud Balm have?","page":"[catalog.pdf p.1]","fact":"unscented"},
+  {"id":"S1","q":"How many Cloud Balm refill trays are packed together?","page":"[insert.pdf p.1]","fact":"four"},
+  {"id":"S2","q":"What color mailer is used to return empty refill trays?","page":"[insert.pdf p.1]","fact":"blue"},
+  {"id":"S3","q":"What batch code is printed on the Cloud Balm insert?","page":"[insert.pdf p.1]","fact":"LUMI-81"},
+  {"id":"A1","q":"What size does the product card list?","expect":"clarify which product"},
+  {"id":"U1","q":"What is the retail price of Cloud Balm?","expect":"decline"},
+  {"id":"U2","q":"In which country is Reed Mist manufactured?","expect":"decline"}
+]
