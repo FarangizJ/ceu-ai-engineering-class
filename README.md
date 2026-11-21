@@ -4,6 +4,10 @@
 
 ---
 
+## Beauty assistant portfolio project
+
+Can OCR recover enough evidence to answer a product question? The [PDF label Q&A benchmark](label_qa/README.md) compares digital extraction with an OCR fallback and publishes the retrieved passages, page citations and failure analysis.
+
 ## Getting Started
 
 1. **Fork this repository** - Click "Fork" (top right) to create your own copy

@@ -1,0 +1,269 @@
+{
+  "digital_only": [
+    {
+      "id": "D1",
+      "question": "What size is the Cloud Balm tin?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D2",
+      "question": "What material is the Reed Mist bottle?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D3",
+      "question": "What scent does Reed Mist have?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D4",
+      "question": "What finish does Cloud Balm have?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "S1",
+      "question": "How many Cloud Balm refill trays are packed together?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": false,
+      "evidence_hit": false
+    },
+    {
+      "id": "S2",
+      "question": "What color mailer is used to return empty refill trays?",
+      "retrieved": [],
+      "page_hit": false,
+      "evidence_hit": false
+    },
+    {
+      "id": "S3",
+      "question": "What batch code is printed on the Cloud Balm insert?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": false,
+      "evidence_hit": false
+    },
+    {
+      "id": "A1",
+      "question": "What size does the product card list?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        },
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ]
+    },
+    {
+      "id": "U1",
+      "question": "What is the retail price of Cloud Balm?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ]
+    },
+    {
+      "id": "U2",
+      "question": "In which country is Reed Mist manufactured?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        },
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ]
+    }
+  ],
+  "ocr_fallback": [
+    {
+      "id": "D1",
+      "question": "What size is the Cloud Balm tin?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        },
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D2",
+      "question": "What material is the Reed Mist bottle?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        },
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D3",
+      "question": "What scent does Reed Mist have?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "D4",
+      "question": "What finish does Cloud Balm have?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        },
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "S1",
+      "question": "How many Cloud Balm refill trays are packed together?",
+      "retrieved": [
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        },
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "S2",
+      "question": "What color mailer is used to return empty refill trays?",
+      "retrieved": [
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": true
+    },
+    {
+      "id": "S3",
+      "question": "What batch code is printed on the Cloud Balm insert?",
+      "retrieved": [
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        },
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ],
+      "page_hit": true,
+      "evidence_hit": false
+    },
+    {
+      "id": "A1",
+      "question": "What size does the product card list?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        },
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        }
+      ]
+    },
+    {
+      "id": "U1",
+      "question": "What is the retail price of Cloud Balm?",
+      "retrieved": [
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        },
+        {
+          "cite": "[catalog.pdf p.1]",
+          "text": "Cloud Balm | product card Cloud Balm comes in a 30 ml aluminum tin. Cloud Balm has an unscented finish."
+        }
+      ]
+    },
+    {
+      "id": "U2",
+      "question": "In which country is Reed Mist manufactured?",
+      "retrieved": [
+        {
+          "cite": "[catalog.pdf p.2]",
+          "text": "Reed Mist | product card Reed Mist comes in a 60 ml glass bottle. Reed Mist has a citrus scent."
+        },
+        {
+          "cite": "[insert.pdf p.1]",
+          "text": "Cloud Balm | packaging insert Cloud Balm refill trays are packed in sets of four. Return empty refill trays in the blue mailer."
+        }
+      ]
+    }
+  ]
+}
